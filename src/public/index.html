@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>::: Chat de prueba :::</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/1322648feb.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/estilos.css">
+</head>
+<body>
+
+    <nav class="navbar navbar-light bg-warning">
+        <a class="navbar-brand mx-auto" href="/">Chat de prueba</a>
+    </nav>
+    
+    <section id="app" class="">
+        <div class="container">
+            <template v-if="step === 'default'">
+                <div class="row mt-2">
+                    <div class="col-md-6 mt-4">
+                        <div class="card">
+                            <div class="input-group">
+                                <input v-model="nombre" class="form-control" type="text" placeholder="Ingrese su nombre" id="usuario">
+                                <div class="control">
+                                    <a @click="signIn" class="btn btn-warning" >
+                                        Ingresar
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </template>
+            <template v-else>
+                <div class="row mt-4">
+                        <div class="col-md-6 offset-md-1">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4>Sala de Chat</h4>
+                                </div>
+                                <div class="input-group chatprueba">
+                                    <div v-if="mensajes.length" class="chat-container">
+                                        <div v-for="item in mensajes" :class="{ 'has-text-right': nombre === item.nombre } ">
+                                            <div v-if="nombre===item.nombre">
+                                                <br>
+                                                <div  class="msjPropio">
+                                                    <div class="box chat-message" >
+                                                        <span class="nombre">{{ item.nombre }}</span>
+                                                        <span class="textmsj">{{ item.mensaje }}</span>
+                                                        <span class="fecha">{{ new Date(item.date).toISOString() }}</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div v-else>
+                                                <br>
+                                                <div class="otroMsj">
+                                                    <div class="box chat-message" >
+                                                        <span class="nombre">{{ item.nombre }}</span>
+                                                        <span class="textmsj">{{ item.mensaje }}</span>
+                                                        <span class="fecha">{{ new Date(item.date).toISOString() }}</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="input-group ">
+                                    <input type="text" id="message" class="form-control" v-model="mensaje" placeholder="Ingrese el mensaje">
+                                    <div class="input-group-append">
+                                        <button type="button" @click="send" class="btn btn-warning">
+                                            <i class="fas fa-location-arrow"></i>
+                                            Enviar
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    <div class="col-md-3">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4>Online</h4>
+                            </div>
+
+                            <div class="input-group UsuariosContainer">
+                                <div v-if="usuarios.length">
+                                    <div v-for="item in usuarios">
+                                        <div v-for="usuario in item">
+                                            <p><i class="fas fa-user"></i>{{usuario.usuario}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </template>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script src="socket.io/socket.io.js"></script>
+    <script src="./js/chat.js"></script>
+    
+</body>
+</html>

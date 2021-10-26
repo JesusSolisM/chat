@@ -1,0 +1,102 @@
+body {
+  background: #0F2027;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #2C5364, #203A43, #0F2027);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+body .card {
+  max-width: 600px;
+  background: #edf0f1;
+  display: block;
+}
+
+.chatprueba {
+  height: 500px;
+  margin: 30px auto;
+  border: 0px;
+  box-shadow: 1px;
+  overflow: auto;
+  background: #edf0f1;
+}
+
+.chatprueba .chat-container {
+  width: 100%;
+}
+
+.chatprueba .chat-container .msjPropio {
+  text-align: right;
+}
+
+.chatprueba .chat-container .msjPropio .box {
+  width: 100%;
+  margin-bottom: 15px;
+  background: #edf0f1;
+}
+
+.chatprueba .chat-container .msjPropio .box .nombre {
+  color: #208307;
+  font-size: 16px;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.chatprueba .chat-container .msjPropio .box .textmsj {
+  display: block;
+  color: #208307;
+  font-size: 16px;
+  font-style: italic;
+}
+
+.chatprueba .chat-container .msjPropio .box .fecha {
+  display: block;
+  color: #877f7f;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 10px;
+}
+
+.chatprueba .chat-container .otroMsj {
+  text-align: left;
+}
+
+.chatprueba .chat-container .otroMsj .box {
+  width: 100%;
+  margin-bottom: 15px;
+  background: #edf0f1;
+}
+
+.chatprueba .chat-container .otroMsj .box .nombre {
+  color: #075c79;
+  font-size: 14px;
+  font-style: italic;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.chatprueba .chat-container .otroMsj .box .textmsj {
+  display: block;
+  color: #075c79;
+  font-size: 16px;
+  font-style: italic;
+}
+
+.chatprueba .chat-container .otroMsj .box .fecha {
+  display: block;
+  color: #877f7f;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 10px;
+}
+
+p {
+  margin-left: 5px;
+  color: rgba(6, 83, 110, 0.398);
+  font-size: 14px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#actions p {
+  padding: 10px 0;
+  margin: 0 20px;
+  border-bottom: 1px solid #e9e9e9;
+  color: #877f7f;
+}
